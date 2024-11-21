@@ -6,11 +6,33 @@ import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
+import gdown  # Required to download from Google Drive
 
-# Load the dataset (ensure 'creditcard.csv' is in the same directory)
+# Google Drive link for the creditcard.csv file
+file_url = "https://drive.google.com/uc?id=1gWCrzD_mjHH_KQun0QsMITqWtQYvWD8i"  # Replace with your file ID
+
+# Download the CSV file from Google Drive
+gdown.download(file_url, "creditcard.csv", quiet=False)
+
+# Read the dataset
 data = pd.read_csv("creditcard.csv")
-X = data.drop(columns=['Class'])
-y = data['Class']
+
+# Check the column names to ensure 'Class' exists
+st.write("Column names in the dataset:", data.columns)  # Display column names
+
+# Strip any leading/trailing spaces in the column names
+data.columns = data.columns.str.strip()
+
+# Check the first few rows to ensure the data is loaded correctly
+st.write("First few rows of the dataset:", data.head())
+
+# Ensure the 'Class' column is present
+if 'Class' in data.columns:
+    X = data.drop(columns=['Class'])
+    y = data['Class']
+else:
+    st.error("Column 'Class' not found in the dataset. Please check the dataset.")
+    st.stop()  # Stop the execution if 'Class' column is missing
 
 # Split the dataset
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
