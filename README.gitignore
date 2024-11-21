@@ -1,0 +1,28 @@
+# Fraud Detection with Streamlit and Machine Learning
+
+This project is a real-time fraud detection application that uses machine learning to classify transactions as fraudulent or legitimate. The app uses a Random Forest classifier trained on the [Credit Card Fraud Detection dataset](https://www.kaggle.com/mlg-ulb/creditcardfraud) and runs in a Streamlit web app.
+
+## Features
+
+- **Real-time Transaction Simulation**: Simulate processing real-time transactions and classify them as fraudulent or legitimate.
+- **Model Performance Metrics**: View key performance metrics like precision, recall, and F1 score for the model.
+- **Custom Transaction Prediction**: Input custom transaction values and get predictions for fraud or legitimacy.
+- **Fraud vs Legitimate Transaction Visualization**: Visualize the distribution of fraudulent vs legitimate transactions.
+- **Download Predictions**: Export the predicted results for all test transactions to a CSV file.
+
+## Getting Started
+
+### Prerequisites
+
+Before running the project, ensure you have the following software installed:
+
+- Python 3.x
+- Pip (Python package installer)
+
+### Install Dependencies
+
+Clone the repository and navigate to the project folder:
+
+```bash
+git clone https://github.com/DgTheniel/fraud-detection.git
+cd fraud-detection
